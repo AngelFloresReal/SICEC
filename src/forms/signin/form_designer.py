@@ -18,7 +18,7 @@ class FormSigninDesigner:
         self.ventana.resizable(width=0, height=0)
         utl.centrar_ventana(self.ventana, 600, 480)
         
-        logo = utl.leer_imagen("./src/assets/img/logo.jpeg", (200, 200))
+        logo = utl.leer_imagen("./src/assets/img/logo.png", (200, 200))
         
         # frame_logo
         frame_logo = tk.Frame(self.ventana, bd=0, width=200, relief=tk.SOLID, padx=10, pady=0, bg='#000000')

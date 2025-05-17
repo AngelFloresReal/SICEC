@@ -13,7 +13,7 @@ class MasterPanel:
         self.ventana.resizable(width=1, height=1)
         self.ventana.minsize(width=800, height=600)
         
-        logo = utl.leer_imagen("./src/assets/img/logo.jpeg", (200, 200))                
+        logo = utl.leer_imagen("./src/assets/img/logo.png", (200, 200))                
         label = tk.Label(self.ventana, image=logo, bg='black')
         label.place(x=0, y=0, relwidth=1, relheight=1)
 
