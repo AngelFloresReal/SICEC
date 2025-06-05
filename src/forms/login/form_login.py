@@ -24,7 +24,7 @@ class FormLogin(FormLoginDesigner):
         # ventana = tk.Toplevel()
         # form_register = FormRegister()
         # form_register.pack(fill='both', expand=True)
-        # ventana.mainloop()
+        # ventana.mainloop()    
         FormRegister().mainloop()
         
     def isUser(self, user: Auth_User):

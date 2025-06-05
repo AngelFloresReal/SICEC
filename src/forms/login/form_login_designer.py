@@ -21,24 +21,21 @@ class FormLoginDesigner:
 
         logo = utl.leer_imagen("./src/assets/img/logo.png", (200, 200))
 
-        # Crear un contenedor principal para centrar todo
         contenedor_principal = tk.Frame(self.ventana, bg="#ffffff")
         contenedor_principal.place(relx=0.5, rely=0.5, anchor="center")
 
-        # Ancho del 60% de la ventana (800 * 0.6 = 480)
         ancho_contenedor = 480
         
         contenedor = tk.Frame(contenedor_principal, bg="#ffffff", width=ancho_contenedor)
         contenedor.pack()
 
-        titulo = tk.Label(contenedor, text="SICEC", font=('Arial', 30, BOLD), fg="#000000", bg="#ffffff")
+        titulo = tk.Label(contenedor, text="SICEC", font=('Arial', 45, BOLD), fg="#000000", bg="#ffffff")
         titulo.pack(pady=(0, 20))
 
         label_logo = tk.Label(contenedor, image=logo, bg="#ffffff")
         label_logo.image = logo
         label_logo.pack(pady=(0, 20))
 
-        # Estilo visual para Entry
         style = ttk.Style()
         style.configure("TEntry", padding=10, relief="flat", font=('Arial', 14))
         style.map("TEntry",
@@ -46,30 +43,25 @@ class FormLoginDesigner:
             fieldbackground=[('!disabled', 'white')],
         )
 
-        # Frame para contener los controles con ancho fijo
         controles_frame = tk.Frame(contenedor, bg="#ffffff", width=ancho_contenedor)
         controles_frame.pack(fill=tk.X)
-        controles_frame.pack_propagate(False)  # Impide que el frame se redimensione automáticamente
+        controles_frame.pack_propagate(False)
 
-        # Campo usuario con placeholder
         self.usuario = ttk.Entry(controles_frame, style="TEntry")
-        self.usuario.insert(0, "Usuario")
-        self.usuario.bind("<FocusIn>", lambda e: self._clear_placeholder(e, "Usuario"))
-        self.usuario.bind("<FocusOut>", lambda e: self._add_placeholder(e, "Usuario"))
+        self.usuario.insert(0, "Ingrese su usuario")
+        self.usuario.bind("<FocusIn>", lambda e: self._clear_placeholder(e, "Ingrese su usuario"))
+        self.usuario.bind("<FocusOut>", lambda e: self._add_placeholder(e, "Ingrese su usuario"))
         self.usuario.pack(fill=tk.X, padx=20, pady=(0, 10))
 
-        # Campo contraseña con placeholder
         self.password = ttk.Entry(controles_frame, style="TEntry")
-        self.password.insert(0, "Contraseña")
-        self.password.bind("<FocusIn>", lambda e: self._clear_placeholder(e, "Contraseña", is_password=True))
-        self.password.bind("<FocusOut>", lambda e: self._add_placeholder(e, "Contraseña", is_password=True))
+        self.password.insert(0, "Ingrese su contraseña")
+        self.password.bind("<FocusIn>", lambda e: self._clear_placeholder(e, "Ingrese su contraseña", is_password=True))
+        self.password.bind("<FocusOut>", lambda e: self._add_placeholder(e, "Ingrese su contraseña", is_password=True))
         self.password.pack(fill=tk.X, padx=20, pady=(0, 20))
 
-        # Botón Iniciar sesión
         boton_login = tk.Button(controles_frame, text="Iniciar sesión", font=('Arial', 15, BOLD), bg='#536FB5', fg='white', bd=0, command=self.verificar)
         boton_login.pack(fill=tk.X, padx=20, pady=(0, 10))
 
-        # Establece el tamaño fijo para el frame de controles
         controles_frame.config(width=ancho_contenedor, height=150)
 
         self.ventana.bind("<Return>", lambda event: self.verificar())
